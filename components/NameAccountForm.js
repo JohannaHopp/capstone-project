@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
 export default function NameAccountForm() {
   const [name, setName] = useState("");
@@ -13,9 +14,9 @@ export default function NameAccountForm() {
 
   return (
     <>
-      <form onSubmit={submitData}>
-        <label htmlFor="name">Bitte verrate uns deinen Namen:</label>
-        <input
+      <StyledForm onSubmit={submitData}>
+        <StyledLabel htmlFor="name">Bitte verrate uns deinen Namen:</StyledLabel>
+        <StyledInput
           type="text"
           name="name"
           placeholder="Name"
@@ -23,8 +24,8 @@ export default function NameAccountForm() {
           onChange={(event) => setName(event.target.value)}
           required
         />
-        <label htmlFor="kontostand">und jetzt gib bitte deinen Kontostand an:</label>
-        <input
+        <StyledLabel htmlFor="kontostand">und jetzt gib bitte deinen Kontostand an:</StyledLabel>
+        <StyledInput
           type="number"
           name="kontostand"
           placeholder="Kontostand (in €)"
@@ -32,16 +33,15 @@ export default function NameAccountForm() {
           onChange={(event) => setKontostand(event.target.value)}
           required
         />
-        <button type="submit">bestätigen</button>
-      </form>
-
+        <StyledButton type="submit">bestätigen</StyledButton>
+      </StyledForm>
       <div>
         {newValue.map((values) => {
           return (
             <>
-              <h3>Hallo {values.name},</h3>
-              <p>dein Kontostand beträgt zur Zeit:</p>
-              <div>{values.kontostand}€</div>
+              <StyledHeadline>Hallo {values.name},</StyledHeadline>
+              <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
+              <StyledSection>{values.kontostand} €</StyledSection>
             </>
           );
         })}
@@ -49,3 +49,46 @@ export default function NameAccountForm() {
     </>
   );
 }
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+`;
+
+const StyledLabel = styled.label`
+  margin: 7% 0% 1%;
+`;
+
+const StyledInput = styled.input`
+  border-radius: 5px;
+  padding: 1%;
+`;
+
+const StyledButton = styled.button`
+  margin: 7% 30%;
+  border-radius: 5px;
+  background-color: var(--green-button);
+
+  &: hover {
+    background-color: var(--green-button-hover);
+  }
+`;
+
+const StyledHeadline = styled.h3`
+  margin: 10% 2% 0%;
+  font-size: 20px;
+`;
+
+const StyledParagraph = styled.p`
+  margin: 5% 2% 0%;
+  font-size: 15px;
+`;
+
+const StyledSection = styled.section`
+  margin: 1% 2% 0%;
+  border: 2px solid;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 5em;
+`;

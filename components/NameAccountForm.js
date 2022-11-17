@@ -1,40 +1,51 @@
-import { createElement, useState } from "react";
+import React, { useState } from "react";
 
 export default function NameAccountForm() {
-  const [input, setInput] = useState({
-    name: "",
-    kontostand: "",
-  });
+  const [name, setName] = useState("");
+  const [kontostand, setKontostand] = useState("");
+  const [newValue, setNewValue] = useState([]);
 
-  const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-
-    setInput((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
-
-  const handleSubmit = (event) => {
+  const submitData = (event) => {
     event.preventDefault();
-    console.log(input);
+    const newData = { name: name, kontostand: kontostand };
+    setNewValue([...newValue, newData]);
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={submitData}>
         <label htmlFor="name">Bitte verrate uns deinen Namen:</label>
-        <input type="text" name="name" placeholder="Name" onChange={handleChange} required />
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          required
+        />
         <label htmlFor="kontostand">und jetzt gib bitte deinen Kontostand an:</label>
         <input
           type="number"
           name="kontostand"
           placeholder="Kontostand (in €)"
-          onChange={handleChange}
+          value={kontostand}
+          onChange={(event) => setKontostand(event.target.value)}
           required
         />
         <button type="submit">bestätigen</button>
       </form>
+
+      <div>
+        {newValue.map((values) => {
+          return (
+            <>
+              <h3>Hallo {values.name},</h3>
+              <p>dein Kontostand beträgt zur Zeit:</p>
+              <div>{values.kontostand}€</div>
+            </>
+          );
+        })}
+      </div>
     </>
   );
 }

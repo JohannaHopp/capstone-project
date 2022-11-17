@@ -54,6 +54,7 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   margin: 2%;
+  border-top: 2px solid lightgray;
 `;
 
 const StyledLabel = styled.label`

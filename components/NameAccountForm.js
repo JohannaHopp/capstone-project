@@ -4,17 +4,18 @@ import styled from "styled-components";
 export default function NameAccountForm() {
   const [name, setName] = useState("");
   const [kontostand, setKontostand] = useState("");
-  const [newValue, setNewValue] = useState([]);
 
-  const submitData = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const newData = { name: name, kontostand: kontostand };
-    setNewValue([...newValue, newData]);
+    const name = { name };
+    const kontostand = { kontostand };
+    setName("");
+    setKontostand("");
   };
 
   return (
     <>
-      <StyledForm onSubmit={submitData}>
+      <StyledForm onSubmit={handleSubmit}>
         <StyledLabel htmlFor="name">Bitte verrate uns deinen Namen:</StyledLabel>
         <StyledInput
           type="text"
@@ -35,17 +36,13 @@ export default function NameAccountForm() {
         />
         <StyledButton type="submit">bestätigen</StyledButton>
       </StyledForm>
-      <div>
-        {newValue.map((values) => {
-          return (
-            <>
-              <StyledHeadline>Hallo {values.name},</StyledHeadline>
-              <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
-              <StyledSection>{values.kontostand} €</StyledSection>
-            </>
-          );
-        })}
-      </div>
+      <>
+        <div>
+          <StyledHeadline>Hallo {name},</StyledHeadline>
+          <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
+          <StyledSection>{kontostand} €</StyledSection>
+        </div>
+      </>
     </>
   );
 }
@@ -54,7 +51,6 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   margin: 2%;
-  border-top: 2px solid lightgray;
 `;
 
 const StyledLabel = styled.label`
@@ -87,7 +83,7 @@ const StyledParagraph = styled.p`
 `;
 
 const StyledSection = styled.section`
-  margin: 1% 2% 0%;
+  margin: 5% 2% 0%;
   border: 2px solid;
   border-radius: 5px;
   text-align: center;

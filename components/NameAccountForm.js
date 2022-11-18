@@ -1,49 +1,29 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 
-export default function NameAccountForm() {
-  const [name, setName] = useState("");
-  const [kontostand, setKontostand] = useState("");
-
+export default function NameAccountForm({ onAddEntry }) {
   const handleSubmit = (event) => {
     event.preventDefault();
-    const name = { name };
-    const kontostand = { kontostand };
-    setName("");
-    setKontostand("");
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+
+    onAddEntry(data);
   };
 
   return (
-    <>
-      <StyledForm onSubmit={handleSubmit}>
-        <StyledLabel htmlFor="name">Bitte verrate uns deinen Namen:</StyledLabel>
-        <StyledInput
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          required
-        />
-        <StyledLabel htmlFor="kontostand">und jetzt gib bitte deinen Kontostand an:</StyledLabel>
-        <StyledInput
-          type="number"
-          name="kontostand"
-          placeholder="Kontostand (in €)"
-          value={kontostand}
-          onChange={(event) => setKontostand(event.target.value)}
-          required
-        />
-        <StyledButton type="submit">bestätigen</StyledButton>
-      </StyledForm>
-      <>
-        <div>
-          <StyledHeadline>Hallo {name},</StyledHeadline>
-          <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
-          <StyledSection>{kontostand} €</StyledSection>
-        </div>
-      </>
-    </>
+    <StyledForm onSubmit={handleSubmit}>
+      <StyledLabel htmlFor="name">Bitte gib deinen Namen an:</StyledLabel>
+      <StyledInput type="text" id="name" name="name" placeholder="Name" required />
+      <StyledLabel htmlFor="kontostand">und jetzt gib bitte deinen Kontostand an:</StyledLabel>
+      <StyledInput
+        type="number"
+        id="kontostand"
+        name="kontostand"
+        placeholder="Kontostand (in €)"
+        required
+      />
+      <StyledButton type="submit">bestätigen</StyledButton>
+    </StyledForm>
   );
 }
 
@@ -66,26 +46,4 @@ const StyledButton = styled.button`
   margin: 7% 30%;
   border-radius: 5px;
   background-color: var(--green-button);
-
-  &: hover {
-    background-color: var(--green-button-hover);
-  }
-`;
-
-const StyledHeadline = styled.h3`
-  margin: 10% 2% 0%;
-  font-size: 20px;
-`;
-
-const StyledParagraph = styled.p`
-  margin: 5% 2% 0%;
-  font-size: 15px;
-`;
-
-const StyledSection = styled.section`
-  margin: 5% 2% 0%;
-  border: 2px solid;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 5em;
 `;

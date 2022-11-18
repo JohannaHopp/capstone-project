@@ -5,7 +5,7 @@ import { render, screen } from "@testing-library/react";
 import NameAccountForm from "./NameAccountForm";
 
 describe("NameAccountForm", () => {
-  it("should load the page", () => {
+  it("should render", () => {
     render(<NameAccountForm />);
   });
 
@@ -18,9 +18,10 @@ describe("NameAccountForm", () => {
   it("type kontostand in kontostand input", () => {
     render(<NameAccountForm />);
 
-    userEvent.type(screen.getByLabelText(/kontostand/i), "4325");
+    userEvent.type(screen.getByLabelText(/kontostand/i), 3213);
   });
 
   it.todo("only numbers in kontostand input");
+  it.todo("only letters in name input");
   it.todo("submit button works");
 });

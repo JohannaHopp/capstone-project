@@ -16,7 +16,7 @@ export default function Home() {
       <NameAccountForm onAddEntry={addAccountBalanceAndName} />
       <StyledHeadlineThree>Hallo {bankAccount.name},</StyledHeadlineThree>
       <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
-      <StyledSection>{bankAccount.kontostand}€</StyledSection>
+      <StyledDiv>{bankAccount.kontostand}€</StyledDiv>
     </StyledMain>
   );
 }
@@ -54,10 +54,10 @@ const StyledParagraph = styled.p`
   font-size: 15px;
 `;
 
-const StyledSection = styled.section`
+const StyledDiv = styled.section`
   margin: 5% 2% 0%;
   border: 2px solid;
   border-radius: 5px;
   text-align: center;
-  font-size: 5em;
+  font-size: 345%;
 `;

@@ -17,9 +17,7 @@ const GlobalStyles = createGlobalStyle`
     :root {
         --primary: #ffffff;
         --green-button: #a5e39a;
-        --green-button-hover: #7dc070;
         --back-button: #BFC0BF;
-        --back-button-hover: #a0a1a0;
         --red-headline: #ff0000;
     }
 `;

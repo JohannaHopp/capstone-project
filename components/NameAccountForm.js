@@ -13,10 +13,20 @@ export default function NameAccountForm({ onAddEntry }) {
   return (
     <StyledForm onSubmit={handleSubmit}>
       <StyledLabel htmlFor="name">Bitte gib deinen Namen an:</StyledLabel>
-      <StyledInput type="text" id="name" name="name" placeholder="Name" required />
+      <StyledInput
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Name"
+        title="Nur Buchstaben möglich"
+        pattern="\D+"
+        required
+      />
       <StyledLabel htmlFor="kontostand">und jetzt gib bitte deinen Kontostand an:</StyledLabel>
       <StyledInput
         type="number"
+        step="0.01"
+        max="1000000"
         id="kontostand"
         name="kontostand"
         placeholder="Kontostand (in €)"

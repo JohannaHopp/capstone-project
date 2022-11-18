@@ -40,20 +40,23 @@ export default function NameAccountForm({ onAddEntry }) {
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 2%;
+  margin: 1%;
 `;
 
 const StyledLabel = styled.label`
   margin: 7% 0% 1%;
+  font-size: 1.1em;
 `;
 
 const StyledInput = styled.input`
   border-radius: 5px;
   padding: 1%;
+  font-size: 1.1em;
 `;
 
 const StyledButton = styled.button`
   margin: 7% 30%;
+  font-size: 1.3em;
   border-radius: 5px;
   background-color: var(--green-button);
 `;

@@ -6,10 +6,19 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        
     }
 
     * {
         box-sizing: border-box;
+        
+    }
+
+    :root {
+        --primary: #ffffff;
+        --green-button: #a5e39a;
+        --back-button: #BFC0BF;
+        --red-headline: #ff0000;
     }
 `;
 

@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export default function NameAccountForm({ onAddEntry }) {
-  const handleSubmit = (event) => {
+  function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
     onAddEntry(data);
-  };
+  }
 
   return (
     <StyledForm onSubmit={handleSubmit}>

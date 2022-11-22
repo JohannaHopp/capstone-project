@@ -1,19 +1,12 @@
 import styled from "styled-components";
 import NameAccountForm from "../components/NameAccountForm";
-import { useState } from "react";
 
-export default function Home() {
-  const [bankAccount, setBankAccount] = useState([]);
-
-  function addAccountBalanceAndName(balanceAndName) {
-    setBankAccount(balanceAndName);
-  }
-
+export default function Home({ bankAccount, onAddBankAccount }) {
   return (
     <StyledMain>
       <StyledHeadlineOne>Willkommen beim</StyledHeadlineOne>
       <StyledHeadlineTwo>Money-Manager!</StyledHeadlineTwo>
-      <NameAccountForm onAddEntry={addAccountBalanceAndName} />
+      <NameAccountForm onAddEntry={onAddBankAccount} />
       <StyledHeadlineThree>Hallo {bankAccount.name},</StyledHeadlineThree>
       <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
       <StyledDiv>{bankAccount.kontostand}€</StyledDiv>

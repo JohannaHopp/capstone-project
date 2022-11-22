@@ -5,17 +5,17 @@ function MyApp({ Component, pageProps }) {
   const [bankAccount, setBankAccount] = useLocalStorage(
     "bankAccount",
 
-    []
+    {}
   );
 
   function addBankAccount(bankAccount) {
-    setBankAccount((previousBankAccount) => [
-      ...previousBankAccount,
-      {
-        id: crypto.randomUUID(),
-        text: bankAccount,
-      },
-    ]);
+    setBankAccount((previousBankAccount) => {
+      return {
+        ...previousBankAccount,
+        name: bankAccount.name,
+        kontostand: bankAccount.kontostand,
+      };
+    });
   }
 
   return (

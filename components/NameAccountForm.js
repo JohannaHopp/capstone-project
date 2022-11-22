@@ -8,6 +8,8 @@ export default function NameAccountForm({ onAddEntry }) {
     const data = Object.fromEntries(formData);
 
     onAddEntry(data);
+
+    window.location = "./overview";
   }
 
   return (

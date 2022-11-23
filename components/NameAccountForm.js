@@ -1,14 +1,17 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 export default function NameAccountForm({ onAddEntry }) {
-  const handleSubmit = (event) => {
+  function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
     onAddEntry(data);
-  };
+  }
+
+  const router = useRouter();
 
   return (
     <StyledForm onSubmit={handleSubmit}>
@@ -26,13 +29,14 @@ export default function NameAccountForm({ onAddEntry }) {
       <StyledInput
         type="number"
         step="0.01"
-        max="1000000"
         id="kontostand"
         name="kontostand"
         placeholder="Kontostand (in €)"
         required
       />
-      <StyledButton type="submit">bestätigen</StyledButton>
+      <StyledButton type="submit" onClick={() => router.push("/overview")}>
+        bestätigen
+      </StyledButton>
     </StyledForm>
   );
 }
@@ -44,14 +48,16 @@ const StyledForm = styled.form`
 `;
 
 const StyledLabel = styled.label`
-  margin: 7% 0% 1%;
-  font-size: 1.1em;
+  margin: 2% 0% 2%;
+  padding-bottom: 4%
+  font-size: 1em;
 `;
 
 const StyledInput = styled.input`
   border-radius: 5px;
   padding: 1%;
-  font-size: 1.1em;
+  margin-bottom: 5%;
+  font-size: 1em;
 `;
 
 const StyledButton = styled.button`

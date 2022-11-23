@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 export default function NameAccountForm({ onAddEntry }) {
   function handleSubmit(event) {
@@ -8,9 +9,9 @@ export default function NameAccountForm({ onAddEntry }) {
     const data = Object.fromEntries(formData);
 
     onAddEntry(data);
-
-    window.location = "./overview";
   }
+
+  const router = useRouter();
 
   return (
     <StyledForm onSubmit={handleSubmit}>
@@ -33,7 +34,9 @@ export default function NameAccountForm({ onAddEntry }) {
         placeholder="Kontostand (in €)"
         required
       />
-      <StyledButton type="submit">bestätigen</StyledButton>
+      <StyledButton type="submit" onClick={() => router.push("/overview")}>
+        bestätigen
+      </StyledButton>
     </StyledForm>
   );
 }

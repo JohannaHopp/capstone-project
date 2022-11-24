@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import NameAccountForm from "../components/NameAccountForm";
 
-export default function Home({ bankAccount, onAddBankAccount }) {
+export default function Home({ onAddBankAccount }) {
   return (
     <StyledMain>
       <StyledHeadlineOne>Willkommen beim</StyledHeadlineOne>

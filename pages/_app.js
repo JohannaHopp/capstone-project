@@ -7,6 +7,11 @@ function MyApp({ Component, pageProps }) {
 
     {}
   );
+  const [spendingValues, setSpendingValues] = useLocalStorage(
+    "spendingValues",
+
+    []
+  );
 
   function addBankAccount(bankAccount) {
     setBankAccount((previousBankAccount) => {
@@ -18,10 +23,26 @@ function MyApp({ Component, pageProps }) {
     });
   }
 
+  function addSpendingValues(spendingValues) {
+    setSpendingValues((previousSpendingValues) => [
+      ...previousSpendingValues,
+      {
+        spending: spendingValues.spending,
+        spendFor: spendingValues.spendFor,
+      },
+    ]);
+  }
+
   return (
     <>
       <GlobalStyles />
-      <Component {...pageProps} bankAccount={bankAccount} onAddBankAccount={addBankAccount} />
+      <Component
+        {...pageProps}
+        bankAccount={bankAccount}
+        onAddBankAccount={addBankAccount}
+        spendingValues={spendingValues}
+        onAddSpendingValues={addSpendingValues}
+      />
     </>
   );
 }

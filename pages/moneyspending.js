@@ -1,36 +1,18 @@
-import styled from "styled-components";
-import { useRouter } from "next/router";
+import SpendingForm from "../components/SpendingForm";
 
-export default function () {
-  const router = useRouter();
+export default function Moneyspending({ spendingValues, onAddSpendingValues }) {
   return (
-    <main>
-      <header>
-        <h1>Ausgaben</h1>
-      </header>
-      <form>
-        <label htmlFor="spending">ausgegeben:</label>
-        <input
-          type="number"
-          step="0.01"
-          id="spending"
-          name="spending"
-          placeholder="Betrag in €"
-          required
-        />
-        <label htmlFor="spendFor">für:</label>
-        <input
-          type="text"
-          id="spendFor"
-          name="spendFor"
-          placeholder=" kurze Beschreibung"
-          maxLength={30}
-          required
-        />
-        <button onClick={() => router.push("./overview")}>abbrechen und zurück</button>
-        <button type="submit">bestätigen</button>
-      </form>
-      <h2>Zahlungsverlauf</h2>
-    </main>
+    <>
+      <SpendingForm onAddEntry={onAddSpendingValues} />
+      <h3>Zahlungsverlauf</h3>
+      <ul>
+        {spendingValues.map((spendingValues) => (
+          <li>
+            {spendingValues.spendFor}
+            {spendingValues.spending}
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }

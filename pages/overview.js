@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 export default function Overview({ bankAccount }) {
+  const router = useRouter();
   return (
     <main>
       <StyledHeader>
@@ -8,12 +10,13 @@ export default function Overview({ bankAccount }) {
       </StyledHeader>
       <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
       <StyledDiv>{bankAccount.kontostand}€</StyledDiv>
+      <button onClick={() => router.push("/moneyspending")}>-</button>
     </main>
   );
 }
 
 const StyledHeader = styled.header`
-  padding-bottom: 4%;
+  padding-bottom: 3%;
   margin: 0%;
   border-bottom: 2px solid black;
 `;

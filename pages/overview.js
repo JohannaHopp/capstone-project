@@ -10,7 +10,7 @@ export default function Overview({ bankAccount }) {
       </StyledHeader>
       <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
       <StyledDiv>{bankAccount.kontostand}€</StyledDiv>
-      <button onClick={() => router.push("/moneyspending")}>-</button>
+      <MinusBtn onClick={() => router.push("/moneyspending")}>-</MinusBtn>
     </main>
   );
 }
@@ -40,4 +40,12 @@ const StyledDiv = styled.section`
   border-radius: 5px;
   text-align: center;
   font-size: 345%;
+`;
+
+const MinusBtn = styled.button`
+  background-color: var(--red-button);
+  border-radius: 5px;
+  width: 45%;
+  margin-top: 20%;
+  font-size: 50px;
 `;

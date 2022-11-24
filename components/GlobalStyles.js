@@ -17,6 +17,7 @@ const GlobalStyles = createGlobalStyle`
     :root {
         --primary: #ffffff;
         --green-button: #a5e39a;
+        --red-button: #FA6E6E;
         --back-button: #BFC0BF;
         --red-headline: #ff0000;
     }

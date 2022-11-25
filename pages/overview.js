@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import SpendingList from "../components/SpendingList";
 
 export default function Overview({ bankAccount, spendingValues }) {
   const router = useRouter();
+
   return (
     <main>
       <StyledHeader>

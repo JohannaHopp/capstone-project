@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-export default function SpendingForm({ onAddEntry }) {
+export default function TransactionForm({ onAddEntry, title }) {
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -16,13 +16,14 @@ export default function SpendingForm({ onAddEntry }) {
   return (
     <main>
       <header>
-        <h1>Ausgaben</h1>
+        <h1>{`${title}`}</h1>
       </header>
       <form onSubmit={handleSubmit}>
         <label htmlFor="spending">ausgegeben:</label>
         <input
           type="number"
           step="0.01"
+          min="0"
           id="spending"
           name="spending"
           placeholder="Betrag in €"

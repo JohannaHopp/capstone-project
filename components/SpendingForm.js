@@ -37,7 +37,9 @@ export default function SpendingForm({ onAddEntry }) {
           required
         />
         <button onClick={() => router.push("./overview")}>abbrechen und zurück</button>
-        <button type="submit">bestätigen</button>
+        <button type="submit" onClick={() => router.push("./overview")}>
+          bestätigen
+        </button>
       </form>
     </main>
   );

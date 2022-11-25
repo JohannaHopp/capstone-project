@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import SpendingList from "../components/SpendingList";
 
-export default function Overview({ bankAccount }) {
+export default function Overview({ bankAccount, spendingValues }) {
   const router = useRouter();
   return (
     <main>
@@ -11,6 +12,15 @@ export default function Overview({ bankAccount }) {
       <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
       <StyledDiv>{bankAccount.kontostand}€</StyledDiv>
       <MinusBtn onClick={() => router.push("/moneyspending")}>-</MinusBtn>
+      <h3>Zahlungsverlauf</h3>
+      <ul>
+        {spendingValues.map((spendingValues) => (
+          <li>
+            {spendingValues.spendFor}
+            {spendingValues.spending}€
+          </li>
+        ))}
+      </ul>
     </main>
   );
 }

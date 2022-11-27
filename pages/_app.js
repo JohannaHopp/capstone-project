@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
       return {
         ...previousBankAccount,
         name: bankAccount.name,
-        kontostand: bankAccount.kontostand,
+        kontostand: parseFloat(bankAccount.kontostand),
       };
     });
   }
@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }) {
     setSpendingValues((previousSpendingValues) => [
       ...previousSpendingValues,
       {
-        spending: spendingValues.spending,
+        spending: parseFloat(spendingValues.spending),
         spendFor: spendingValues.spendFor,
       },
     ]);

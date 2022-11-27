@@ -3,6 +3,16 @@ import { useRouter } from "next/router";
 
 export default function Overview({ bankAccount, spendingValues }) {
   const router = useRouter();
+  let newKontostand = 0;
+  let allSpendingsTogether = 0;
+
+  if (spendingValues.length > 0) {
+    spendingValues.map((spendingValues) => {
+      allSpendingsTogether = allSpendingsTogether + parseFloat(spendingValues.spending);
+    });
+  }
+
+  newKontostand = bankAccount.kontostand - allSpendingsTogether;
 
   return (
     <main>
@@ -10,13 +20,13 @@ export default function Overview({ bankAccount, spendingValues }) {
         <StyledHeadline>Willkommen {bankAccount.name}</StyledHeadline>
       </StyledHeader>
       <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
-      <StyledDiv>{bankAccount.kontostand}€</StyledDiv>
+      <StyledDiv>{newKontostand}€</StyledDiv>
       <MinusBtn onClick={() => router.push("/moneyspending")}>-</MinusBtn>
       <h3>Zahlungsverlauf</h3>
       <ul>
         {spendingValues.map((spendingValues) => (
           <li>
-            {spendingValues.spendFor}
+            {spendingValues.spendFor}&nbsp;
             {spendingValues.spending}€
           </li>
         ))}

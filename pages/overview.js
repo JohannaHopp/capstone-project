@@ -42,7 +42,7 @@ const StyledHeader = styled.header`
 `;
 
 const StyledHeadline = styled.h1`
-  margin: 7% 0% 10%;
+  margin: 5% 0% 5%;
   font-family: san-serif;
   font-size: 2.1em;
   color: var(--red-headline);

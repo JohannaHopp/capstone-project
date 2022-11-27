@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { useRouter } from "next/router";
 
 export default function TransactionForm({ onAddEntry, title }) {

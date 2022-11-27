@@ -22,15 +22,15 @@ export default function Overview({ bankAccount, spendingValues }) {
       <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
       <StyledDiv>{newKontostand}€</StyledDiv>
       <MinusBtn onClick={() => router.push("/moneyspending")}>-</MinusBtn>
-      <h3>Zahlungsverlauf</h3>
-      <ul>
+      <StyledHeadlineTwo>Zahlungsverlauf</StyledHeadlineTwo>
+      <StyledTable>
         {spendingValues.map((spendingValues) => (
-          <li>
-            {spendingValues.spendFor}&nbsp;
-            {spendingValues.spending}€
-          </li>
+          <StyledTr>
+            <LeftTd>{spendingValues.spendFor}</LeftTd>
+            <RightTd>-{spendingValues.spending}€</RightTd>
+          </StyledTr>
         ))}
-      </ul>
+      </StyledTable>
     </main>
   );
 }
@@ -66,6 +66,40 @@ const MinusBtn = styled.button`
   background-color: var(--red-button);
   border-radius: 5px;
   width: 45%;
-  margin-top: 20%;
+  margin-top: 15%;
   font-size: 50px;
+`;
+
+const StyledHeadlineTwo = styled.h2`
+  margin-top: 15%;
+  font-family: san-serif;
+  font-size: 2.1em;
+  border-bottom: 2px solid var(--red-headline);
+  text-align: center;
+`;
+
+const StyledTable = styled.table`
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+  list-style: none;
+  display: flex;
+  flex-direction: column-reverse;
+`;
+
+const StyledTr = styled.tr`
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: var(--red-button);
+  margin: 2%;
+`;
+
+const LeftTd = styled.td`
+  float: left;
+  padding: 3%;
+`;
+
+const RightTd = styled.td`
+  float: right;
+  padding: 3%;
 `;

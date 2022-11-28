@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function Overview({ bankAccount, spendingValues }) {
   const router = useRouter();
@@ -15,59 +16,66 @@ export default function Overview({ bankAccount, spendingValues }) {
   newKontostand = bankAccount.kontostand - allSpendingsTogether;
 
   return (
-    <main>
+    <StyledMain>
       <StyledHeader>
         <StyledHeadline>Willkommen {bankAccount.name}</StyledHeadline>
       </StyledHeader>
       <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
       <StyledDiv>{newKontostand}€</StyledDiv>
-      <MinusBtn onClick={() => router.push("/moneyspending")}>-</MinusBtn>
+      <MinusLink href="/moneyspending">-</MinusLink>
       <StyledHeadlineTwo>Zahlungsverlauf</StyledHeadlineTwo>
-      <StyledTable>
+      <StyledUl>
         {spendingValues.map((spendingValues) => (
-          <StyledTr>
-            <LeftTd>{spendingValues.spendFor}</LeftTd>
-            <RightTd>-{spendingValues.spending}€</RightTd>
-          </StyledTr>
+          <StyledList>
+            <span>{spendingValues.spendFor}</span>
+            <Amount>-{spendingValues.spending}€</Amount>
+          </StyledList>
         ))}
-      </StyledTable>
-    </main>
+      </StyledUl>
+    </StyledMain>
   );
 }
 
 const StyledHeader = styled.header`
-  padding-bottom: 3%;
-  margin: 0%;
+  padding-bottom: 2em;
   border-bottom: 2px solid black;
 `;
 
 const StyledHeadline = styled.h1`
-  margin: 5% 0% 5%;
+  margin: 0;
   font-family: san-serif;
   font-size: 2.1em;
   color: var(--red-headline);
   text-align: center;
 `;
 
+const StyledMain = styled.main`
+  display: flex;
+  flex-direction: column;
+`;
+
 const StyledParagraph = styled.p`
-  margin: 15% 1% 0%;
+  margin: 15% 1% 0;
   font-size: 1em;
 `;
 
 const StyledDiv = styled.section`
-  margin: 5% 1% 0%;
+  margin: 5% 0;
   border: 2px solid;
   border-radius: 5px;
   text-align: center;
   font-size: 345%;
 `;
 
-const MinusBtn = styled.button`
+const MinusLink = styled(Link)`
   background-color: var(--red-button);
+  border: 1px solid;
   border-radius: 5px;
-  width: 45%;
-  margin-top: 15%;
+  text-decoration: none;
+  text-align: center;
+  color: black;
   font-size: 50px;
+  width: 140px;
 `;
 
 const StyledHeadlineTwo = styled.h2`
@@ -78,7 +86,7 @@ const StyledHeadlineTwo = styled.h2`
   text-align: center;
 `;
 
-const StyledTable = styled.table`
+const StyledUl = styled.ul`
   margin: 0;
   padding: 0;
   text-align: justify;
@@ -87,19 +95,16 @@ const StyledTable = styled.table`
   flex-direction: column-reverse;
 `;
 
-const StyledTr = styled.tr`
+const StyledList = styled.li`
   border: 2px solid black;
   border-radius: 5px;
   background-color: var(--red-button);
   margin: 2%;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
 `;
 
-const LeftTd = styled.td`
-  float: left;
-  padding: 3%;
-`;
-
-const RightTd = styled.td`
-  float: right;
-  padding: 3%;
+const Amount = styled.span`
+  justify-self: end;
 `;

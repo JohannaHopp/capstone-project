@@ -44,25 +44,29 @@ export default function NameAccountForm({ onAddEntry }) {
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 1%;
 `;
 
 const StyledLabel = styled.label`
-  margin: 2% 0% 2%;
+  margin: 1em 0;
   padding-bottom: 4%
   font-size: 1em;
 `;
 
 const StyledInput = styled.input`
   border-radius: 5px;
-  padding: 1%;
-  margin-bottom: 5%;
+  padding: 3px;
+  margin-bottom: 1em;
   font-size: 1em;
 `;
 
 const StyledButton = styled.button`
-  margin: 7% 30%;
+  align-self: center;
+  margin-top: 5em;
+  width: 140px;
+  height: 30px;
+  text-align: center;
   font-size: 1.3em;
   border-radius: 5px;
   background-color: var(--green-button);
+  color: black;
 `;

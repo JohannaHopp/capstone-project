@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import styled from "styled-components";
+import Link from "next/link";
 
 export default function TransactionForm({ onAddEntry, title }) {
   function handleSubmit(event) {
@@ -9,6 +10,7 @@ export default function TransactionForm({ onAddEntry, title }) {
     const data = Object.fromEntries(formData);
 
     onAddEntry(data);
+    router.push("./overview");
   }
 
   const router = useRouter();
@@ -37,25 +39,20 @@ export default function TransactionForm({ onAddEntry, title }) {
           placeholder=" kurze Beschreibung"
           required
         />
-        <ButtonGroup>
-          <StyledCancelButton onClick={() => router.push("./overview")}>zurück</StyledCancelButton>
-          <StyledSubmitButton type="submit" onClick={() => router.push("./overview")}>
-            bestätigen
-          </StyledSubmitButton>
-        </ButtonGroup>
+        <StyledSubmitButton type="submit">bestätigen</StyledSubmitButton>
       </StyledForm>
+      <StyledGoBackLink href="/overview">zurück</StyledGoBackLink>
     </main>
   );
 }
 
 const StyledHeader = styled.header`
-  padding-bottom: 3%;
-  margin: 0%;
+  padding-bottom: 2em;
   border-bottom: 2px solid black;
 `;
 
 const StyledHeadline = styled.h1`
-  margin: 5% 0% 5%;
+  margin: 0;
   font-family: san-serif;
   font-size: 2.1em;
   color: var(--red-headline);
@@ -63,44 +60,43 @@ const StyledHeadline = styled.h1`
 `;
 
 const StyledForm = styled.form`
+  margin-top: 2em;
   display: flex;
   flex-direction: column;
-  margin: 1%;
 `;
 
 const StyledLabel = styled.label`
-  margin: 2% 0% 2%;
-  padding-bottom: 4%
   font-size: 1em;
 `;
 
 const StyledInput = styled.input`
   border-radius: 5px;
-  padding: 1%;
-  margin-bottom: 5%;
+  padding: 3px;
+  margin: 0.5em 0 1em 0;
   font-size: 1em;
-`;
-
-const ButtonGroup = styled.div`
-margin-top: 80%;
-display: flex;
-flex-direction row;
-align-items: flex-end;
-justify-content: space-between;
-`;
-
-const StyledCancelButton = styled.button`
-  justify-content: flex-start;
-  width: 140px;
-  font-size: 1em;
-  border-radius: 5px;
-  background-color: var(--back-button);
 `;
 
 const StyledSubmitButton = styled.button`
-  margin: ;
   width: 140px;
+  height: 30px;
+
   font-size: 1em;
+  border: 1px solid;
   border-radius: 5px;
   background-color: var(--green-button);
+  align-self: flex-end;
+`;
+
+const StyledGoBackLink = styled(Link)`
+  text-decoration: none;
+  text-align: center;
+  font-size: 1em;
+  width: 140px;
+  height: 30px;
+  color: black;
+  background-color: var(--back-button);
+  border: 1px solid;
+  border-radius: 5px;
+  float: left;
+  padding: 5px;
 `;

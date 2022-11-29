@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
       return {
         ...previousBankAccount,
         name: bankAccount.name,
-        kontostand: parseFloat(bankAccount.kontostand),
+        bankAccountBalance: parseFloat(bankAccount.bankAccountBalance),
       };
     });
   }

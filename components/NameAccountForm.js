@@ -25,12 +25,14 @@ export default function NameAccountForm({ onAddEntry }) {
         pattern="\D+"
         required
       />
-      <StyledLabel htmlFor="kontostand">und jetzt gib bitte deinen Kontostand an:</StyledLabel>
+      <StyledLabel htmlFor="bankAccountBalance">
+        und jetzt gib bitte deinen Kontostand an:
+      </StyledLabel>
       <StyledInput
         type="number"
         step="0.01"
-        id="kontostand"
-        name="kontostand"
+        id="bankAccountBalance"
+        name="bankAccountBalance"
         placeholder="Kontostand (in €)"
         required
       />

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Overview({ bankAccount, spendingValues }) {
   const router = useRouter();
-  let newKontostand = 0;
+  let newbankAccountBalance = 0;
   let allSpendingsTogether = 0;
 
   if (spendingValues.length > 0) {
@@ -13,7 +13,7 @@ export default function Overview({ bankAccount, spendingValues }) {
     });
   }
 
-  newKontostand = bankAccount.kontostand - allSpendingsTogether;
+  newbankAccountBalance = bankAccount.bankAccountBalance - allSpendingsTogether;
 
   return (
     <StyledMain>
@@ -21,7 +21,7 @@ export default function Overview({ bankAccount, spendingValues }) {
         <StyledHeadline>Willkommen {bankAccount.name}</StyledHeadline>
       </StyledHeader>
       <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
-      <StyledDiv>{newKontostand}€</StyledDiv>
+      <StyledDiv>{newbankAccountBalance}€</StyledDiv>
       <MinusLink href="/moneyspending">-</MinusLink>
       <StyledHeadlineTwo>Zahlungsverlauf</StyledHeadlineTwo>
       <StyledUl>

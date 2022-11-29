@@ -2,18 +2,24 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-export default function Overview({ bankAccount, spendingValues }) {
+export default function Overview({ bankAccount, spendingValues, addingValues }) {
   const router = useRouter();
   let newbankAccountBalance = 0;
+  let allAddingsTogether = 0;
   let allSpendingsTogether = 0;
 
   if (spendingValues.length > 0) {
     spendingValues.map((spendingValues) => {
       allSpendingsTogether = allSpendingsTogether + parseFloat(spendingValues.spending);
     });
+  } else if (addingValues.length > 0) {
+    addingValues.map((addingValues) => {
+      allAddingsTogether = allAddingsTogether + parseFloat(addingValues.addings);
+    });
   }
 
-  newbankAccountBalance = bankAccount.bankAccountBalance - allSpendingsTogether;
+  newbankAccountBalance =
+    bankAccount.bankAccountBalance - allSpendingsTogether + allAddingsTogether;
 
   return (
     <StyledMain>
@@ -23,13 +29,22 @@ export default function Overview({ bankAccount, spendingValues }) {
       <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
       <StyledDiv>{newbankAccountBalance}€</StyledDiv>
       <MinusLink href="/moneyspending">-</MinusLink>
+      <PlusLink href="/addmoney">+</PlusLink>
       <StyledHeadlineTwo>Zahlungsverlauf</StyledHeadlineTwo>
       <StyledUl>
         {spendingValues.map((spendingValues) => (
-          <StyledList>
+          <StyledListItemRed>
             <span>{spendingValues.spendFor}</span>
             <Amount>-{spendingValues.spending}€</Amount>
-          </StyledList>
+          </StyledListItemRed>
+        ))}
+      </StyledUl>
+      <StyledUl>
+        {addingValues.map((addingValues) => (
+          <StyledListItemGreen>
+            <span>{addingValues.addFor}</span>
+            <Amount>+{addingValues.adding}€</Amount>
+          </StyledListItemGreen>
         ))}
       </StyledUl>
     </StyledMain>
@@ -78,6 +93,17 @@ const MinusLink = styled(Link)`
   width: 140px;
 `;
 
+const PlusLink = styled(Link)`
+  background-color: var(--green-button);
+  border: 1px solid;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  font-size: 50px;
+  width: 140px;
+`;
+
 const StyledHeadlineTwo = styled.h2`
   margin-top: 15%;
   font-family: san-serif;
@@ -95,10 +121,20 @@ const StyledUl = styled.ul`
   flex-direction: column-reverse;
 `;
 
-const StyledList = styled.li`
+const StyledListItemRed = styled.li`
   border: 2px solid black;
   border-radius: 5px;
   background-color: var(--red-button);
+  margin: 2%;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+`;
+
+const StyledListItemGreen = styled.li`
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: var(--green-button);
   margin: 2%;
   padding: 5px;
   display: grid;

@@ -9,10 +9,10 @@ describe("NameAccountForm", () => {
     render(<NameAccountForm />);
 
     const nameInput = screen.getByLabelText(/name/i);
-    const kontostandInput = screen.getByLabelText(/kontostand/i);
+    const bankAccountBalanceInput = screen.getByLabelText(/bankAccountBalance/i);
 
     expect(nameInput).toHaveValue("");
-    expect(kontostandInput).toHaveValue("");
+    expect(bankAccountBalanceInput).toHaveValue("");
   });
 });
 /*  it("type name in name input", async () => {
@@ -26,22 +26,22 @@ describe("NameAccountForm", () => {
     expect(nameInput).toHaveValue(name);
   });
 
-it("type kontostand in kontostand input", async () => {
+it("type bankAccountBalance in bankAccountBalance input", async () => {
   render(<NameAccountForm />);
 
-  const kontostand = 4212;
+  const bankAccountBalance = 4212;
 
-  const kontostandInput = screen.getByLabelText(/kontostand/i);
+  const bankAccountBalanceInput = screen.getByLabelText(/bankAccountBalance/i);
 
-  await userEvent.type(kontostandInput, kontostand);
+  await userEvent.type(bankAccountBalanceInput, bankAccountBalance);
 
-  expect(kontostandInput).toHaveValue(kontostand);
+  expect(bankAccountBalanceInput).toHaveValue(bankAccountBalance);
 });
 
-   it("only numbers in kontostand input", () => {
+   it("only numbers in bankAccountBalance input", () => {
     render(<NameAccountForm />);
 
-    const input = getByLabelText(/kontostand/i);
+    const input = getByLabelText(/bankAccountBalance/i);
 
     expect(input).toHaveAttribute("type", "number");
   });

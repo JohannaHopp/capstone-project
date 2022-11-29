@@ -7,21 +7,42 @@ function MyApp({ Component, pageProps }) {
 
     {}
   );
+  const [spendingValues, setSpendingValues] = useLocalStorage(
+    "spendingValues",
+
+    []
+  );
 
   function addBankAccount(bankAccount) {
     setBankAccount((previousBankAccount) => {
       return {
         ...previousBankAccount,
         name: bankAccount.name,
-        kontostand: bankAccount.kontostand,
+        bankAccountBalance: parseFloat(bankAccount.bankAccountBalance),
       };
     });
+  }
+
+  function addSpendingValues(spendingValues) {
+    setSpendingValues((previousSpendingValues) => [
+      ...previousSpendingValues,
+      {
+        spending: parseFloat(spendingValues.spending),
+        spendFor: spendingValues.spendFor,
+      },
+    ]);
   }
 
   return (
     <>
       <GlobalStyles />
-      <Component {...pageProps} bankAccount={bankAccount} onAddBankAccount={addBankAccount} />
+      <Component
+        {...pageProps}
+        bankAccount={bankAccount}
+        onAddBankAccount={addBankAccount}
+        spendingValues={spendingValues}
+        onAddSpendingValues={addSpendingValues}
+      />
     </>
   );
 }

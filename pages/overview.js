@@ -8,17 +8,20 @@ export default function Overview({ bankAccount, spendingValues, addingValues }) 
   let allSpendingsTogether = 0;
   let allAddingsTogether = 0;
 
-  if (spendingValues.length > 0) {
-    spendingValues.forEach((spendingValues) => {
-      allSpendingsTogether = allSpendingsTogether + parseFloat(spendingValues.spending);
-    });
-  } else if (addingValues.length > 0) {
-    addingValues.forEach((addingValues) => {
-      allAddingsTogether = allAddingsTogether + addingValues.addings;
+  if (addingValues.length) {
+    addingValues.map((addingValues) => {
+      allAddingsTogether = allAddingsTogether + parseFloat(addingValues.adding);
     });
   }
+
+  if (spendingValues.length) {
+    spendingValues.map((spendingValues) => {
+      allSpendingsTogether = allSpendingsTogether + parseFloat(spendingValues.spending);
+    });
+  }
+
   newbankAccountBalance =
-    bankAccount.bankAccountBalance - allSpendingsTogether + allAddingsTogether;
+    bankAccount.bankAccountBalance + allAddingsTogether - allSpendingsTogether;
 
   return (
     <StyledMain>

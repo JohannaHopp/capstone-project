@@ -21,21 +21,21 @@ export default function TransactionForm({ onAddEntry, title, label }) {
         <StyledHeadline>{`${title}`}</StyledHeadline>
       </StyledHeader>
       <StyledForm onSubmit={handleSubmit}>
-        <StyledLabel htmlFor="adding">{`${label}`}:</StyledLabel>
+        <StyledLabel htmlFor="moneyValue">{`${label}`}:</StyledLabel>
         <StyledInput
           type="number"
           step="0.01"
           min="0"
-          id="adding"
-          name="adding"
+          id="moneyValue"
+          name="moneyValue"
           placeholder="Betrag in €"
           required
         />
-        <StyledLabel htmlFor="addFor">für:</StyledLabel>
+        <StyledLabel htmlFor="moneyFor">für:</StyledLabel>
         <StyledInput
           type="text"
-          id="addFor"
-          name="addFor"
+          id="moneyFor"
+          name="moneyFor"
           placeholder=" kurze Beschreibung"
           required
         />

@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
     setAddingValues((previousAddingValues) => [
       ...previousAddingValues,
       {
-        adding: parseFloat(addingValues.add),
+        adding: addingValues.adding,
         addFor: addingValues.addFor,
       },
     ]);

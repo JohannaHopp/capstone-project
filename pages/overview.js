@@ -5,19 +5,18 @@ import Link from "next/link";
 export default function Overview({ bankAccount, spendingValues, addingValues }) {
   const router = useRouter();
   let newbankAccountBalance = 0;
-  let allAddingsTogether = 0;
   let allSpendingsTogether = 0;
+  let allAddingsTogether = 0;
 
   if (spendingValues.length > 0) {
-    spendingValues.map((spendingValues) => {
+    spendingValues.forEach((spendingValues) => {
       allSpendingsTogether = allSpendingsTogether + parseFloat(spendingValues.spending);
     });
   } else if (addingValues.length > 0) {
-    addingValues.map((addingValues) => {
-      allAddingsTogether = allAddingsTogether + parseFloat(addingValues.addings);
+    addingValues.forEach((addingValues) => {
+      allAddingsTogether = allAddingsTogether + addingValues.addings;
     });
   }
-
   newbankAccountBalance =
     bankAccount.bankAccountBalance - allSpendingsTogether + allAddingsTogether;
 
@@ -51,35 +50,37 @@ export default function Overview({ bankAccount, spendingValues, addingValues }) 
   );
 }
 
+const StyledMain = styled.main`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`;
+
 const StyledHeader = styled.header`
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   border-bottom: 2px solid black;
+  grid-column-start: span 2;
 `;
 
 const StyledHeadline = styled.h1`
   margin: 0;
   font-family: san-serif;
-  font-size: 2.1em;
+  font-size: 2.3em;
   color: var(--red-headline);
   text-align: center;
 `;
 
-const StyledMain = styled.main`
-  display: flex;
-  flex-direction: column;
-`;
-
 const StyledParagraph = styled.p`
-  margin: 15% 1% 0;
-  font-size: 1em;
+  margin-top: 3em;
+  font-size: 1rem;
+  grid-column-start: span 2;
 `;
 
 const StyledDiv = styled.section`
-  margin: 5% 0;
   border: 2px solid;
   border-radius: 5px;
   text-align: center;
-  font-size: 345%;
+  font-size: 5em;
+  grid-column-start: span 2;
 `;
 
 const MinusLink = styled(Link)`
@@ -90,7 +91,8 @@ const MinusLink = styled(Link)`
   text-align: center;
   color: black;
   font-size: 50px;
-  width: 140px;
+  width: 3.2em;
+  margin-top: 1em;
 `;
 
 const PlusLink = styled(Link)`
@@ -101,7 +103,9 @@ const PlusLink = styled(Link)`
   text-align: center;
   color: black;
   font-size: 50px;
-  width: 140px;
+  width: 3.2em;
+  justify-self: end;
+  margin-top: 1em;
 `;
 
 const StyledHeadlineTwo = styled.h2`
@@ -110,6 +114,7 @@ const StyledHeadlineTwo = styled.h2`
   font-size: 2.1em;
   border-bottom: 2px solid var(--red-headline);
   text-align: center;
+  grid-column-start: span 2;
 `;
 
 const StyledUl = styled.ul`
@@ -119,6 +124,7 @@ const StyledUl = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column-reverse;
+  grid-column-start: span 2;
 `;
 
 const StyledListItemRed = styled.li`

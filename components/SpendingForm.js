@@ -47,7 +47,7 @@ export default function TransactionForm({ onAddEntry, title }) {
 }
 
 const StyledHeader = styled.header`
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   border-bottom: 2px solid black;
 `;
 
@@ -79,7 +79,6 @@ const StyledInput = styled.input`
 const StyledSubmitButton = styled.button`
   width: 140px;
   height: 30px;
-
   font-size: 1em;
   border: 1px solid;
   border-radius: 5px;
@@ -99,4 +98,6 @@ const StyledGoBackLink = styled(Link)`
   border-radius: 5px;
   float: left;
   padding: 5px;
+  position: absolute;
+  top: 15.3em;
 `;

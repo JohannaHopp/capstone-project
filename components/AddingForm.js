@@ -47,7 +47,7 @@ export default function TransactionForm({ onAddEntry, title, label }) {
 }
 
 const StyledHeader = styled.header`
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   border-bottom: 2px solid black;
 `;
 
@@ -99,4 +99,6 @@ const StyledGoBackLink = styled(Link)`
   border-radius: 5px;
   float: left;
   padding: 5px;
+  position: absolute;
+  top: 15.3em;
 `;

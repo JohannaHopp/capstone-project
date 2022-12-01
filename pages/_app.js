@@ -7,8 +7,15 @@ function MyApp({ Component, pageProps }) {
 
     {}
   );
+
   const [spendingValues, setSpendingValues] = useLocalStorage(
     "spendingValues",
+
+    []
+  );
+
+  const [addingValues, setAddingValues] = useLocalStorage(
+    "addingValues",
 
     []
   );
@@ -33,6 +40,16 @@ function MyApp({ Component, pageProps }) {
     ]);
   }
 
+  function addAddingValues(addingValues) {
+    setAddingValues((previousAddingValues) => [
+      ...previousAddingValues,
+      {
+        adding: addingValues.adding,
+        addFor: addingValues.addFor,
+      },
+    ]);
+  }
+
   return (
     <>
       <GlobalStyles />
@@ -42,9 +59,32 @@ function MyApp({ Component, pageProps }) {
         onAddBankAccount={addBankAccount}
         spendingValues={spendingValues}
         onAddSpendingValues={addSpendingValues}
+        addingValues={addingValues}
+        onAddAddingValues={addAddingValues}
       />
     </>
   );
 }
 
 export default MyApp;
+
+/*   const [moneyValues, setMoneyValues] = useLocalStorage(
+    "moneyValues",
+
+    []
+  ); 
+  
+  function addMoneyValues(moneyValues) {
+    setMoneyValues((previousMoneyValues) => [
+      ...previousMoneyValues,
+      {
+        spending: parseFloat(spendingValues.spending),
+        spendFor: spendingValues.spendFor,
+        adding: parseFloat(addingValues.add),
+        addFor: addingValues.addFor,
+      },
+    ]);
+  }
+  
+  moneyValues={moneyValues}
+        onAddMoneyValues={addMoneyValues}     */

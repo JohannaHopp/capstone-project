@@ -21,21 +21,21 @@ export default function TransactionForm({ onAddEntry, title, label }) {
         <StyledHeadline>{`${title}`}</StyledHeadline>
       </StyledHeader>
       <StyledForm onSubmit={handleSubmit}>
-        <StyledLabel htmlFor="moneyValue">{`${label}`}:</StyledLabel>
+        <StyledLabel htmlFor="adding">{`${label}`}:</StyledLabel>
         <StyledInput
           type="number"
           step="0.01"
           min="0"
-          id="moneyValue"
-          name="moneyValue"
+          id="adding"
+          name="adding"
           placeholder="Betrag in €"
           required
         />
-        <StyledLabel htmlFor="moneyFor">für:</StyledLabel>
+        <StyledLabel htmlFor="addFor">für:</StyledLabel>
         <StyledInput
           type="text"
-          id="moneyFor"
-          name="moneyFor"
+          id="addFor"
+          name="addFor"
           placeholder=" kurze Beschreibung"
           required
         />
@@ -47,7 +47,7 @@ export default function TransactionForm({ onAddEntry, title, label }) {
 }
 
 const StyledHeader = styled.header`
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   border-bottom: 2px solid black;
 `;
 
@@ -99,4 +99,6 @@ const StyledGoBackLink = styled(Link)`
   border-radius: 5px;
   float: left;
   padding: 5px;
+  position: absolute;
+  top: 15.3em;
 `;

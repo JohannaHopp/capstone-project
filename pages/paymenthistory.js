@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 export default function HistoryList({ spendingValues, addingValues }) {
@@ -82,4 +81,5 @@ const StyledGoBackLink = styled(Link)`
   border-radius: 5px;
   float: left;
   padding: 5px;
+  margin-left: 7px;
 `;

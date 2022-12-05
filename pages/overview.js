@@ -32,23 +32,7 @@ export default function Overview({ bankAccount, spendingValues, addingValues }) 
       <StyledDiv>{newbankAccountBalance}€</StyledDiv>
       <MinusLink href="/moneyspending">-</MinusLink>
       <PlusLink href="/addmoney">+</PlusLink>
-      <StyledHeadlineTwo>Zahlungsverlauf</StyledHeadlineTwo>
-      <StyledUl>
-        {spendingValues.map((spendingValues) => (
-          <StyledListItemRed>
-            <span>{spendingValues.spendFor}</span>
-            <Amount>-{spendingValues.spending}€</Amount>
-          </StyledListItemRed>
-        ))}
-      </StyledUl>
-      <StyledUl>
-        {addingValues.map((addingValues) => (
-          <StyledListItemGreen>
-            <span>{addingValues.addFor}</span>
-            <Amount>+{addingValues.adding}€</Amount>
-          </StyledListItemGreen>
-        ))}
-      </StyledUl>
+      <PaymentLink href="/paymenthistory">Zahlungsverlauf</PaymentLink>
     </StyledMain>
   );
 }
@@ -94,7 +78,8 @@ const MinusLink = styled(Link)`
   text-align: center;
   color: black;
   font-size: 50px;
-  width: 3.2em;
+  width: 160px;
+  height: 60px;
   margin-top: 1em;
 `;
 
@@ -106,50 +91,22 @@ const PlusLink = styled(Link)`
   text-align: center;
   color: black;
   font-size: 50px;
-  width: 3.2em;
+  width: 160px;
+  height: 60px;
   justify-self: end;
   margin-top: 1em;
 `;
 
-const StyledHeadlineTwo = styled.h2`
-  margin-top: 15%;
-  font-family: san-serif;
-  font-size: 2.1em;
-  border-bottom: 2px solid var(--red-headline);
+const PaymentLink = styled(Link)`
+  background-color: var(--back-button);
+  border: 1px solid;
+  border-radius: 5px;
+  text-decoration: none;
   text-align: center;
-  grid-column-start: span 2;
-`;
-
-const StyledUl = styled.ul`
-  margin: 0;
-  padding: 0;
-  text-align: justify;
-  list-style: none;
-  display: flex;
-  flex-direction: column-reverse;
-  grid-column-start: span 2;
-`;
-
-const StyledListItemRed = styled.li`
-  border: 2px solid black;
-  border-radius: 5px;
-  background-color: var(--red-button);
-  margin: 2%;
-  padding: 5px;
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-`;
-
-const StyledListItemGreen = styled.li`
-  border: 2px solid black;
-  border-radius: 5px;
-  background-color: var(--green-button);
-  margin: 2%;
-  padding: 5px;
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-`;
-
-const Amount = styled.span`
-  justify-self: end;
+  color: black;
+  font-size: 20px;
+  width: 160px;
+  height: 60px;
+  margin-top: 1em;
+  padding-top: 17px;
 `;

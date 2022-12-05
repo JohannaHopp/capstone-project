@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import Link from "next/link";
+import Footer from "./Footer";
 
 export default function TransactionForm({ onAddEntry, title }) {
   function handleSubmit(event) {
@@ -41,7 +41,7 @@ export default function TransactionForm({ onAddEntry, title }) {
         />
         <StyledSubmitButton type="submit">bestätigen</StyledSubmitButton>
       </StyledForm>
-      <StyledGoBackLink href="/overview">zurück</StyledGoBackLink>
+      <Footer />
     </main>
   );
 }
@@ -49,12 +49,13 @@ export default function TransactionForm({ onAddEntry, title }) {
 const StyledHeader = styled.header`
   padding-bottom: 1em;
   border-bottom: 2px solid black;
+  grid-column-start: span 2;
 `;
 
 const StyledHeadline = styled.h1`
   margin: 0;
   font-family: san-serif;
-  font-size: 2.1em;
+  font-size: 2.3em;
   color: var(--red-headline);
   text-align: center;
 `;
@@ -79,25 +80,9 @@ const StyledInput = styled.input`
 const StyledSubmitButton = styled.button`
   width: 140px;
   height: 30px;
-  font-size: 1em;
+  font-size: 23px;
   border: 1px solid;
   border-radius: 5px;
   background-color: var(--green-button);
-  align-self: flex-end;
-`;
-
-const StyledGoBackLink = styled(Link)`
-  text-decoration: none;
-  text-align: center;
-  font-size: 1em;
-  width: 140px;
-  height: 30px;
-  color: black;
-  background-color: var(--back-button);
-  border: 1px solid;
-  border-radius: 5px;
-  float: left;
-  padding: 5px;
-  position: absolute;
-  top: 15.3em;
+  align-self: center;
 `;

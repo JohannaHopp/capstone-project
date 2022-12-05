@@ -33,6 +33,7 @@ export default function Overview({ bankAccount, spendingValues, addingValues }) 
       <MinusLink href="/moneyspending">-</MinusLink>
       <PlusLink href="/addmoney">+</PlusLink>
       <PaymentLink href="/paymenthistory">Zahlungsverlauf</PaymentLink>
+      <OptionsLink href="/options">Optionen</OptionsLink>
     </StyledMain>
   );
 }
@@ -109,4 +110,19 @@ const PaymentLink = styled(Link)`
   height: 60px;
   margin-top: 1em;
   padding-top: 17px;
+`;
+
+const OptionsLink = styled(Link)`
+  background-color: var(--back-button);
+  border: 1px solid;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  width: 160px;
+  height: 60px;
+  margin-top: 1em;
+  padding-top: 17px;
+  justify-self: end;
 `;

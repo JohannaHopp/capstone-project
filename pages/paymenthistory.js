@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import Link from "next/link";
+import Footer from "../components/Footer";
 
 export default function HistoryList({ spendingValues, addingValues }) {
   return (
     <>
-      <StyledHeadlineTwo>Zahlungsverlauf</StyledHeadlineTwo>
+      <StyledHeader>
+        <StyledHeadline>Zahlungsverlauf</StyledHeadline>
+      </StyledHeader>
       <StyledUl>
         {spendingValues.map((spendingValues) => (
           <StyledListItemRed>
@@ -21,18 +23,23 @@ export default function HistoryList({ spendingValues, addingValues }) {
           </StyledListItemGreen>
         ))}
       </StyledUl>
-      <StyledGoBackLink href="/overview">zurück</StyledGoBackLink>
+      <Footer />
     </>
   );
 }
 
-const StyledHeadlineTwo = styled.h2`
-  margin-top: 15%;
-  font-family: san-serif;
-  font-size: 2.1em;
-  border-bottom: 2px solid var(--red-headline);
-  text-align: center;
+const StyledHeader = styled.header`
+  padding-bottom: 1em;
+  border-bottom: 2px solid black;
   grid-column-start: span 2;
+`;
+
+const StyledHeadline = styled.h1`
+  margin: 0;
+  font-family: san-serif;
+  font-size: 2.3em;
+  color: var(--red-headline);
+  text-align: center;
 `;
 
 const StyledUl = styled.ul`
@@ -67,19 +74,4 @@ const StyledListItemGreen = styled.li`
 
 const Amount = styled.span`
   justify-self: end;
-`;
-
-const StyledGoBackLink = styled(Link)`
-  text-decoration: none;
-  text-align: center;
-  font-size: 1em;
-  width: 140px;
-  height: 30px;
-  color: black;
-  background-color: var(--back-button);
-  border: 1px solid;
-  border-radius: 5px;
-  float: left;
-  padding: 5px;
-  margin-left: 7px;
 `;

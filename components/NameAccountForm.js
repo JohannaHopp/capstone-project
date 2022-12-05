@@ -50,7 +50,7 @@ const StyledForm = styled.form`
 
 const StyledLabel = styled.label`
   margin: 1em 0;
-  padding-bottom: 4%
+  padding-bottom: 4%;
   font-size: 1em;
 `;
 

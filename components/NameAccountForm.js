@@ -9,6 +9,7 @@ export default function NameAccountForm({ onAddEntry }) {
     const data = Object.fromEntries(formData);
 
     onAddEntry(data);
+    router.push("./overview");
   }
 
   const router = useRouter();
@@ -36,9 +37,7 @@ export default function NameAccountForm({ onAddEntry }) {
         placeholder="Kontostand (in €)"
         required
       />
-      <StyledButton type="submit" onClick={() => router.push("/overview")}>
-        bestätigen
-      </StyledButton>
+      <StyledButton type="submit">bestätigen</StyledButton>
     </StyledForm>
   );
 }

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Footer from "../components/Footer";
 import NameAccountForm from "../components/NameAccountForm";
 
-export default function ChangeData({ onAddBankAccount }) {
+export default function Options({ onAddBankAccount }) {
   return (
     <StyledMain>
       <StyledHeader>

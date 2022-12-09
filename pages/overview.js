@@ -4,24 +4,28 @@ import Link from "next/link";
 
 export default function Overview({ bankAccount, spendingValues, addingValues }) {
   const router = useRouter();
-  let newbankAccountBalance = 0;
-  let allSpendingsTogether = 0;
-  let allAddingsTogether = 0;
+  let newbankAccountBalance = 0.0;
+  let allSpendingsTogether = 0.0;
+  let allAddingsTogether = 0.0;
 
   if (addingValues.length) {
     addingValues.map((addingValues) => {
-      allAddingsTogether = allAddingsTogether + parseFloat(addingValues.adding);
+      allAddingsTogether = Number(allAddingsTogether) + Number(addingValues.adding);
     });
   }
 
   if (spendingValues.length) {
     spendingValues.map((spendingValues) => {
-      allSpendingsTogether = allSpendingsTogether + parseFloat(spendingValues.spending);
+      allSpendingsTogether = Number(allSpendingsTogether) + Number(spendingValues.spending);
     });
   }
 
   newbankAccountBalance =
-    bankAccount.bankAccountBalance + allAddingsTogether - allSpendingsTogether;
+    Number(bankAccount.bankAccountBalance) +
+    Number(allAddingsTogether) -
+    Number(allSpendingsTogether);
+
+  let money = newbankAccountBalance.toFixed(2);
 
   return (
     <StyledMain>
@@ -29,7 +33,7 @@ export default function Overview({ bankAccount, spendingValues, addingValues }) 
         <StyledHeadline>Willkommen {bankAccount.name}</StyledHeadline>
       </StyledHeader>
       <StyledParagraph>dein Kontostand beträgt zur Zeit:</StyledParagraph>
-      <StyledDiv>{newbankAccountBalance}€</StyledDiv>
+      <StyledDiv>{money}€</StyledDiv>
       <MinusLink href="/moneyspending">-</MinusLink>
       <PlusLink href="/addmoney">+</PlusLink>
       <PaymentLink href="/paymenthistory">Zahlungsverlauf</PaymentLink>

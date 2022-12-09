@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
       return {
         ...previousBankAccount,
         name: bankAccount.name,
-        bankAccountBalance: parseFloat(bankAccount.bankAccountBalance),
+        bankAccountBalance: Number(bankAccount.bankAccountBalance),
       };
     });
   }
@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
     setSpendingValues((previousSpendingValues) => [
       ...previousSpendingValues,
       {
-        spending: parseFloat(spendingValues.spending),
+        spending: Number(spendingValues.spending),
         spendFor: spendingValues.spendFor,
       },
     ]);

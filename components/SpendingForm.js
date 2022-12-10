@@ -51,6 +51,7 @@ const StyledHeader = styled.header`
   margin: 0.5em;
   border-bottom: 2px solid #e7e7e7;
   grid-column-start: span 2;
+  margin-bottom: 70px;
 `;
 
 const StyledHeadline = styled.h1`
@@ -62,22 +63,22 @@ const StyledHeadline = styled.h1`
 `;
 
 const StyledForm = styled.form`
-  margin-top: 4em;
   display: flex;
   flex-direction: column;
 `;
 
 const StyledLabel = styled.label`
-  font-size: 1em;
+  font-size: 1.1em;
+  margin-left: 1em;
 `;
 
 const StyledInput = styled.input`
   border-style: none;
   border-bottom: 3px solid #e7e7e7;
   border-radius: 5px;
-  padding: 3px;
+  padding: 10px;
   margin: 1em 0 1em 0;
-  font-size: 1em;
+  font-size: 1.1em;
 `;
 
 const StyledSubmitButton = styled.button`

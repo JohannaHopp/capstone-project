@@ -25,7 +25,7 @@ const StyledHeadlineOne = styled.h1`
 `;
 
 const StyledHeadlineTwo = styled.h2`
-  color: var(--red-headline);
+  color: var(--headline);
   font-family: san-serif;
   font-style: italic;
   font-size: 2.4em;

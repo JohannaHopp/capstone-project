@@ -39,7 +39,7 @@ const StyledHeadline = styled.h1`
   margin: 0;
   font-family: san-serif;
   font-size: 2.3em;
-  color: var(--red-headline);
+  color: var(--headline);
   text-align: center;
 `;
 

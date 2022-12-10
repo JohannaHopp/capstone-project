@@ -52,18 +52,18 @@ const StyledHeader = styled.header`
   margin: 0.5em;
   border-bottom: 2px solid #e7e7e7;
   grid-column-start: span 2;
+  margin-bottom: 60px;
 `;
 
 const StyledHeadline = styled.h1`
   margin: 0;
   font-family: san-serif;
   font-size: 2.3em;
-  color: var(--red-headline);
+  color: var(--headline);
   text-align: center;
 `;
 
 const StyledParagraph = styled.p`
-  margin-top: 3em;
   margin-left: 1em;
   font-size: 1rem;
   grid-column-start: span 2;

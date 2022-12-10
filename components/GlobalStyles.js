@@ -19,8 +19,10 @@ const GlobalStyles = createGlobalStyle`
         --primary: #ffffff;
         --green-button: #a5e39a;
         --red-button: #FA6E6E;
-        --back-button: #BFC0BF;
-        --red-headline: #ff0000;
+        --back-button: #DBF8FD;
+        --headline: #46B5CA;
+        --green-headline: #54A147;
+        --red-headline: #EF2929;
     }
 `;
 

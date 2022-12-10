@@ -9,6 +9,9 @@ export default function Delete() {
 
   return (
     <StyledMain>
+      <StyledHeader>
+        <StyledHeadline>Löschen</StyledHeadline>
+      </StyledHeader>
       <StyledParagraph>
         Bist du sicher,
         <br /> dass du <br />
@@ -26,10 +29,26 @@ const StyledMain = styled.main`
   flex-direction: column;
 `;
 
+const StyledHeader = styled.header`
+  padding: 1em 0;
+  margin: 0.5em;
+  border-bottom: 2px solid #e7e7e7;
+  grid-column-start: span 2;
+`;
+
+const StyledHeadline = styled.h1`
+  margin: 0;
+  font-family: san-serif;
+  font-size: 2.3em;
+  color: var(--headline);
+  text-align: center;
+`;
+
 const StyledParagraph = styled.p`
   justify-content: center;
-  font-size: 3em;
+  font-size: 2em;
   text-align: center;
+  grid-column-start: span 2;
 `;
 
 const StyledSpan = styled.span`

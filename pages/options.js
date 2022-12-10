@@ -14,7 +14,7 @@ export default function Options({ onAddBankAccount }) {
       </StyledHeader>
       <NameAccountForm onAddEntry={onAddBankAccount} />
 
-      <StyledLink href="/delete">alles löschen</StyledLink>
+      <StyledLink href="/delete">löschen</StyledLink>
 
       <Footer />
     </StyledMain>
@@ -22,9 +22,8 @@ export default function Options({ onAddBankAccount }) {
 }
 
 const StyledMain = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 `;
 
 const StyledHeader = styled.header`
@@ -38,22 +37,26 @@ const StyledHeadline = styled.h1`
   margin: 0;
   font-family: san-serif;
   font-size: 2.3em;
-  color: var(--red-headline);
+  color: var(--headline);
   text-align: center;
 `;
 
 const StyledLink = styled(Link)`
-  align-self: flex-end;
-  margin-top: 5em;
   width: 140px;
   height: 30px;
   text-align: center;
-  font-size: 1.3em;
+  font-size: 23px;
   border-radius: 5px;
   background-color: var(--red-button);
   color: black;
-  margin-top: 161px;
   z-index: 1;
-  border: 1px solid black;
+  border-style: none;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   text-decoration: none;
+  _grid-column-start: span 2;
+  _justify-self: end;
+  _margin-right: 21px;
+  position: absolute;
+  right: 21px;
+  bottom: 50px;
 `;

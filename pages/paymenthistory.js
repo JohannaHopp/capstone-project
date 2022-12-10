@@ -29,7 +29,8 @@ export default function HistoryList({ spendingValues, addingValues }) {
 }
 
 const StyledHeader = styled.header`
-  padding-bottom: 1em;
+  padding: 1em 0;
+  margin: 0.5em;
   border-bottom: 2px solid #e7e7e7;
   grid-column-start: span 2;
 `;

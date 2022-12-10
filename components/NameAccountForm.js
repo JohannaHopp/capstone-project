@@ -48,13 +48,13 @@ const StyledForm = styled.form`
 `;
 
 const StyledLabel = styled.label`
-  margin: 1em 0;
+  margin: 1em;
   padding-bottom: 4%;
   font-size: 1em;
 `;
 
 const StyledInput = styled.input`
-  padding: 3px;
+  padding: 10px;
   margin-bottom: 1em;
   font-size: 1em;
   border-style: none;

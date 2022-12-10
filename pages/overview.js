@@ -48,7 +48,8 @@ const StyledMain = styled.main`
 `;
 
 const StyledHeader = styled.header`
-  padding-bottom: 1em;
+  padding: 1em 0;
+  margin: 0.5em;
   border-bottom: 2px solid #e7e7e7;
   grid-column-start: span 2;
 `;
@@ -63,6 +64,7 @@ const StyledHeadline = styled.h1`
 
 const StyledParagraph = styled.p`
   margin-top: 3em;
+  margin-left: 1em;
   font-size: 1rem;
   grid-column-start: span 2;
 `;
@@ -71,7 +73,7 @@ const StyledDiv = styled.div`
   border: 2px solid;
   border-radius: 5px;
   text-align: center;
-  font-size: 5em;
+  font-size: 10vh;
   grid-column-start: span 2;
   border-style: none;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
@@ -87,6 +89,7 @@ const MinusLink = styled(Link)`
   font-size: 50px;
   width: 160px;
   height: 60px;
+  margin-left: 15px;
   margin-top: 1em;
   border-style: none;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
@@ -104,6 +107,7 @@ const PlusLink = styled(Link)`
   height: 60px;
   justify-self: end;
   margin-top: 1em;
+  margin-right: 15px;
   border-style: none;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 `;
@@ -119,6 +123,7 @@ const PaymentLink = styled(Link)`
   width: 160px;
   height: 60px;
   margin-top: 1em;
+  margin-left: 15px;
   padding-top: 17px;
   border-style: none;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
@@ -135,6 +140,7 @@ const OptionsLink = styled(Link)`
   width: 160px;
   height: 60px;
   margin-top: 1em;
+  margin-right: 15px;
   padding-top: 17px;
   justify-self: end;
   border-style: none;

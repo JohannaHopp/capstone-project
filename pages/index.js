@@ -18,7 +18,7 @@ const StyledMain = styled.main`
 `;
 
 const StyledHeadlineOne = styled.h1`
-  margin: 5% 2% 0%;
+  margin: 5% 1% 0%;
   font-size: 1.7em;
   text-align: left;
   padding-left: 0.5em;
@@ -30,7 +30,7 @@ const StyledHeadlineTwo = styled.h2`
   font-style: italic;
   font-size: 2.4em;
   text-align: right;
-  margin: 0% 2% 15%;
+  margin: 0% 1% 15%;
   padding: 1% 0.5em 20px 0;
   border-bottom: 3px outset #e7e7e7;
 `;

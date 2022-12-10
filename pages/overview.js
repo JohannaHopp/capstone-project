@@ -52,7 +52,7 @@ const StyledHeader = styled.header`
   margin: 0.5em;
   border-bottom: 2px solid #e7e7e7;
   grid-column-start: span 2;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 `;
 
 const StyledHeadline = styled.h1`
@@ -65,7 +65,7 @@ const StyledHeadline = styled.h1`
 
 const StyledParagraph = styled.p`
   margin-left: 1em;
-  font-size: 1rem;
+  font-size: 1.1em;
   grid-column-start: span 2;
 `;
 

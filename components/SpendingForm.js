@@ -51,7 +51,7 @@ const StyledHeader = styled.header`
   margin: 0.5em;
   border-bottom: 2px solid #e7e7e7;
   grid-column-start: span 2;
-  margin-bottom: 70px;
+  margin-bottom: 58px;
 `;
 
 const StyledHeadline = styled.h1`

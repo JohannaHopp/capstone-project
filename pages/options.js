@@ -31,6 +31,7 @@ const StyledHeader = styled.header`
   margin: 0.5em;
   border-bottom: 2px solid #e7e7e7;
   grid-column-start: span 2;
+  margin-bottom: 40px;
 `;
 
 const StyledHeadline = styled.h1`
@@ -53,10 +54,7 @@ const StyledLink = styled(Link)`
   border-style: none;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   text-decoration: none;
-  _grid-column-start: span 2;
-  _justify-self: end;
-  _margin-right: 21px;
-  position: absolute;
+  position: fixed;
   right: 21px;
   bottom: 50px;
 `;

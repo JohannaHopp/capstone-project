@@ -48,7 +48,7 @@ export default function TransactionForm({ onAddEntry, title }) {
 
 const StyledHeader = styled.header`
   padding-bottom: 1em;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #e7e7e7;
   grid-column-start: span 2;
 `;
 
@@ -61,7 +61,7 @@ const StyledHeadline = styled.h1`
 `;
 
 const StyledForm = styled.form`
-  margin-top: 2em;
+  margin-top: 4em;
   display: flex;
   flex-direction: column;
 `;
@@ -71,9 +71,11 @@ const StyledLabel = styled.label`
 `;
 
 const StyledInput = styled.input`
+  border-style: none;
+  border-bottom: 3px solid #e7e7e7;
   border-radius: 5px;
   padding: 3px;
-  margin: 0.5em 0 1em 0;
+  margin: 1em 0 1em 0;
   font-size: 1em;
 `;
 
@@ -81,8 +83,11 @@ const StyledSubmitButton = styled.button`
   width: 140px;
   height: 30px;
   font-size: 23px;
-  border: 1px solid;
+  color: black;
   border-radius: 5px;
   background-color: var(--green-button);
   align-self: center;
+  border-style: none;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  margin-top: 2em;
 `;

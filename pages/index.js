@@ -29,6 +29,6 @@ const StyledHeadlineTwo = styled.h2`
   font-style: italic;
   font-size: 2.4em;
   text-align: right;
-  margin: 0% 0% 5%;
+  margin: 0% 0% 15%;
   padding-top: 1%;
 `;

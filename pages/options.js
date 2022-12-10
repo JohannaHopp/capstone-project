@@ -29,7 +29,7 @@ const StyledMain = styled.main`
 
 const StyledHeader = styled.header`
   padding-bottom: 1em;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #e7e7e7;
   grid-column-start: span 2;
 `;
 

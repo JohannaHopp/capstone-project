@@ -54,10 +54,12 @@ const StyledLabel = styled.label`
 `;
 
 const StyledInput = styled.input`
-  border-radius: 5px;
   padding: 3px;
   margin-bottom: 1em;
   font-size: 1em;
+  border-style: none;
+  border-bottom: 3px solid #e7e7e7;
+  border-radius: 5px;
 `;
 
 const StyledButton = styled.button`
@@ -70,4 +72,7 @@ const StyledButton = styled.button`
   border-radius: 5px;
   background-color: var(--green-button);
   color: black;
+  border-style: none;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  margin-top: 2em;
 `;

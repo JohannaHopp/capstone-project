@@ -43,31 +43,39 @@ export default function NameAccountForm({ onAddEntry }) {
 }
 
 const StyledForm = styled.form`
-  display: flex;
+  display: grid;
   flex-direction: column;
+  grid-column-start: span 2;
 `;
 
 const StyledLabel = styled.label`
-  margin: 1em 0;
+  margin: 1em;
   padding-bottom: 4%;
-  font-size: 1em;
+  font-size: 1.1em;
+  grid-column-start: span 2;
 `;
 
 const StyledInput = styled.input`
+  border-style: none;
+  border-bottom: 3px solid #e7e7e7;
   border-radius: 5px;
-  padding: 3px;
+  padding: 10px;
   margin-bottom: 1em;
   font-size: 1em;
+  grid-column-start: span 2;
 `;
 
 const StyledButton = styled.button`
-  align-self: center;
-  margin-top: 5em;
   width: 140px;
   height: 30px;
   text-align: center;
-  font-size: 1.3em;
+  font-size: 23px;
   border-radius: 5px;
   background-color: var(--green-button);
   color: black;
+  border-style: none;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  margin-top: 2em;
+  grid-column-start: span 2;
+  justify-self: center;
 `;

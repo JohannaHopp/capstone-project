@@ -29,16 +29,16 @@ export default function HistoryList({ spendingValues, addingValues }) {
 }
 
 const StyledHeader = styled.header`
-  padding-bottom: 1em;
-  border-bottom: 2px solid black;
-  grid-column-start: span 2;
+  padding: 1em 0;
+  border-bottom: 2px solid #e7e7e7;
+  margin-bottom: 30px;
 `;
 
 const StyledHeadline = styled.h1`
   margin: 0;
   font-family: san-serif;
   font-size: 2.3em;
-  color: var(--red-headline);
+  color: var(--headline);
   text-align: center;
 `;
 
@@ -49,25 +49,22 @@ const StyledUl = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column-reverse;
-  grid-column-start: span 2;
+  font-size: 23px;
 `;
 
 const StyledListItemRed = styled.li`
-  border: 2px solid black;
-  border-radius: 5px;
   background-color: var(--red-button);
-  margin: 2%;
-  padding: 5px;
+  margin: 1% 0;
+  padding: 10px 5px;
   display: grid;
   grid-template-columns: 3fr 1fr;
+  border-style: none;
 `;
 
 const StyledListItemGreen = styled.li`
-  border: 2px solid black;
-  border-radius: 5px;
   background-color: var(--green-button);
-  margin: 2%;
-  padding: 5px;
+  margin: 1% 0;
+  padding: 10px 5px;
   display: grid;
   grid-template-columns: 3fr 1fr;
 `;

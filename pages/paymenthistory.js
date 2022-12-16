@@ -72,3 +72,7 @@ const StyledListItemGreen = styled.li`
 const Amount = styled.span`
   justify-self: end;
 `;
+
+/* background: rgb(251, 50, 50);
+  background: linear-gradient(0deg, rgba(251, 50, 50, 1) 0%, rgba(250, 110, 110, 1) 100%);
+*/

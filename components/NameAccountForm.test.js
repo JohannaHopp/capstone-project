@@ -1,54 +1,33 @@
-import { userEvent } from "@storybook/testing-library";
+import userEvent from "@storybook/testing-library";
 import "@testing-library/jest-dom";
-import { getByLabelText, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 import NameAccountForm from "./NameAccountForm";
 
 describe("NameAccountForm", () => {
-  it("should render", () => {
+  it("should display two labels/inputs and one button", () => {
     render(<NameAccountForm />);
 
-    const nameInput = screen.getByLabelText(/name/i);
-    const bankAccountBalanceInput = screen.getByLabelText(/bankAccountBalance/i);
-
-    expect(nameInput).toHaveValue("");
-    expect(bankAccountBalanceInput).toHaveValue("");
+    expect(screen.getAllByRole("label")).toHaveLength(2);
+    expect(screen.getAllByRole("input")).toHaveLength(2);
+    expect(screen.getAllByRole("button")).toHaveLength(1);
   });
+
+  it("type only letters in name input", async () => {
+    render(<NameAccountForm />);
+
+    const input = screen.getByLabelId("name");
+    await userEvent.getByPlaceholderText(input, "Mia");
+    expect(input).toHaveValue("Mia");
+  });
+
+  it("type only numbers in bankAccountBalance input", async () => {
+    render(<NameAccountForm />);
+
+    const input = screen.getByLabelText("bankAccountBalance");
+    await userEvent.getByPlaceholderText(input, "123");
+    expect(input).toHaveValue("123");
+  });
+
+  it.todo("submit button works");
 });
-/*  it("type name in name input", async () => {
-    render(<NameAccountForm />);
-    const name = "Mia";
-
-    const nameInput = screen.getByLabelText(/name/i);
-
-    await userEvent.type(nameInput, name);
-
-    expect(nameInput).toHaveValue(name);
-  });
-
-it("type bankAccountBalance in bankAccountBalance input", async () => {
-  render(<NameAccountForm />);
-
-  const bankAccountBalance = 4212;
-
-  const bankAccountBalanceInput = screen.getByLabelText(/bankAccountBalance/i);
-
-  await userEvent.type(bankAccountBalanceInput, bankAccountBalance);
-
-  expect(bankAccountBalanceInput).toHaveValue(bankAccountBalance);
-});
-
-   it("only numbers in bankAccountBalance input", () => {
-    render(<NameAccountForm />);
-
-    const input = getByLabelText(/bankAccountBalance/i);
-
-    expect(input).toHaveAttribute("type", "number");
-  });
-
-  it.todo("only letters in name input");
-
-  it.todo("submit button works", ()=> {
-
-
-  });*/
